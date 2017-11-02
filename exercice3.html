@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+  <title>Exercice 3</title>
+</head>
+<body>
+  <form>
+    <label for="compteur">chiffre : </label><input type="nom" name="nom" value="" id="number" />
+    <button type="button" name="button" id="submit">soumettre</button>
+  </form>
+  <script>
+  var numberCheck=37;
+  var cycle=0;
+  $('#submit').click(function(){
+    cycle++;
+    console.log('test');
+   if($('#number').val() == numberCheck){
+     console.log("bon chiffre")
+      alert('vous avez trouvez le bon numéro au bout de ' + cycle +' essai(s)');
+    }else if ($('#number').val() > numberCheck) {
+      alert('moins');
+    }else if($('#number').val() < numberCheck) {
+      alert('plus');
+    }
+  })
+  </script>
+</body>
+</html>
