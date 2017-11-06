@@ -6,25 +6,26 @@
   <title>Exercice 3</title>
 </head>
 <body>
-  <form>
     <label for="compteur">chiffre : </label><input type="nom" name="nom" value="" id="number" />
     <button type="button" name="button" id="submit">soumettre</button>
-  </form>
+  <span id=result><span>
   <script>
-  var numberCheck=37;
+  $(function(){
+  var numberCheck=Math.floor(Math.random()*100+1);
   var cycle=0;
   $('#submit').click(function(){
+    $('#result').empty();
     cycle++;
-    console.log('test');
    if($('#number').val() == numberCheck){
      console.log("bon chiffre")
-      alert('vous avez trouvez le bon numéro au bout de ' + cycle +' essai(s)');
+      $('#result').prepend('vous avez trouvez le bon numéro au bout de ' + cycle +' essai(s)');
     }else if ($('#number').val() > numberCheck) {
-      alert('moins');
+      $('#result').prepend('moins');
     }else if($('#number').val() < numberCheck) {
-      alert('plus');
+      $('#result').prepend('plus');
     }
-  })
+    });
+  });
   </script>
 </body>
 </html>
