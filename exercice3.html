@@ -6,26 +6,29 @@
   <title>Exercice 3</title>
 </head>
 <body>
-    <label for="compteur">chiffre : </label><input type="nom" name="nom" value="" id="number" />
-    <button type="button" name="button" id="submit">soumettre</button>
-  <span id=result><span>
+  <label>Votre choix : </label>
+  <input type="text" id="number" />
+  <button type="button" name="button" id="choix">Valider choix !</button>
   <script>
-  $(function(){
-  var numberCheck=Math.floor(Math.random()*100+1);
-  var cycle=0;
-  $('#submit').click(function(){
-    $('#result').empty();
-    cycle++;
-   if($('#number').val() == numberCheck){
-     console.log("bon chiffre")
-      $('#result').prepend('vous avez trouvez le bon numéro au bout de ' + cycle +' essai(s)');
-    }else if ($('#number').val() > numberCheck) {
-      $('#result').prepend('moins');
-    }else if($('#number').val() < numberCheck) {
-      $('#result').prepend('plus');
-    }
+    $(function(){
+      var goodNumber = Math.floor(Math.random()*100)+1;
+      var counter = 0;
+      $('#choix').click(function(){
+        counter ++;
+        var choiceNumber = $('#number').val();
+        if(isNaN(choiceNumber)==false){
+          if(goodNumber > choiceNumber){
+            alert('Plus !');
+          } else if(goodNumber < choiceNumber){
+            alert('Moins !');
+          } else{
+            alert('Correct ! en ' + counter + ' essais !');
+          }
+        } else{
+          alert('Donnez un nombre !');
+        }
+      });
     });
-  });
   </script>
 </body>
 </html>
